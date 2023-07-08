@@ -1,0 +1,82 @@
+.profile__section {
+  padding: 20px 30px;
+}
+.profile__section .profile__title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.profile__section .profile__information {
+  opacity: 0.6;
+  letter-spacing: 0.3px;
+}
+.profile__main {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 30px;
+}
+.profile__main .picture {
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 200px;
+  padding: 30px 20px;
+  border-radius: 10px;
+}
+.profile__main .picture p {
+  opacity: 0.6;
+  font-size: 15px;
+}
+.profile__main .picture div {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+.profile__main .picture div p {
+  font-size: 12px;
+}
+.profile__main .picture div input {
+  background-image: url("../../assets/image.png");
+  background-repeat: no-repeat;
+  height: 200px;
+  width: 200px;
+  color: transparent;
+}
+.profile__main .picture div input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.profile__main .form {
+  background-color: #fafafa;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 10px;
+}
+.profile__main .form .first__name,
+.profile__main .form .last__name,
+.profile__main .form .email__address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile__main .form .first__name p,
+.profile__main .form .last__name p,
+.profile__main .form .email__address p {
+  opacity: 0.6;
+}
+.profile__main .form .first__name input,
+.profile__main .form .last__name input,
+.profile__main .form .email__address input {
+  width: 60%;
+  padding: 8px;
+  border: 1px solid #cdbeec;
+  border-radius: 10px;
+}
+.profile__main .form .first__name input:focus,
+.profile__main .form .last__name input:focus,
+.profile__main .form .email__address input:focus {
+  box-shadow: 0 0 5px 2px #cdbeec;
+  outline: none;
+}

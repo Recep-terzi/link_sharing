@@ -1,0 +1,36 @@
+.detail__body {
+  position: relative;
+}
+.detail__body img {
+  height: 700px;
+}
+
+.detail__body img:first-child {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  left: 110px;
+  top: 70px;
+  object-fit: cover;
+}
+.detail__body .data__information {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  top: 210px;
+  background-color: #fff;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+.detail__body .data__information p:first-child {
+  font-weight: bold;
+}
+.detail__body .data__information p:last-child {
+  opacity: 0.6;
+  font-size: 12px;
+}
