@@ -13,6 +13,7 @@ const Detail = () => {
   const data = useSelector((state) => state.link.data);
 
   const linkData = useSelector((state) => state.link.linkData);
+
   return (
     <div className="detail__body">
       <img src={imageUrl} alt="" />

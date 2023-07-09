@@ -23,6 +23,11 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
+}
+.navbar__section .navbar__center a:hover {
+  color: #7b70b0;
+  transition: 250ms color;
 }
 .navbar__section .navbar__right button {
   padding: 10px 20px;

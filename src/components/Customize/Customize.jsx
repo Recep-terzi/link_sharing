@@ -19,15 +19,25 @@ const Customize = () => {
   };
   const removeLink = (id) => {
     setAllLinks((prevLinks) => prevLinks.filter((link) => link.id !== id));
+    dispatch(
+      setLinkData(linkData.filter((data) => data.platform !== selectPlatform))
+    );
   };
   const value = useSelector((state) => state.link.step);
   const handleSubmit = () => {
-    dispatch(
-      setLinkData([
-        ...linkData,
-        { platform: selectPlatform, platformLink: platformLink },
-      ])
-    );
+    if (
+      linkData.find((data) => data.platformLink === platformLink) &&
+      linkData.find((data) => data.platform === selectPlatform)
+    ) {
+      return false;
+    } else {
+      dispatch(
+        setLinkData([
+          ...linkData,
+          { platform: selectPlatform, platformLink: platformLink },
+        ])
+      );
+    }
   };
   console.log(linkData);
   return (
@@ -89,7 +99,12 @@ const Customize = () => {
                                   setPlatformLink(e.target.value)
                                 }
                               />
-                              <button onClick={handleSubmit}>Ekle</button>
+                              <button
+                                onClick={handleSubmit}
+                                className="text-end mt-2 p-3 text-md hover:text-green-600 animate-pulse"
+                              >
+                                Save
+                              </button>
                             </Disclosure.Panel>
                           </>
                         )}
