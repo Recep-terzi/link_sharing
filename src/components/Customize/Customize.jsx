@@ -2,12 +2,17 @@ import "./Customize.Module.css";
 import { Disclosure } from "@headlessui/react";
 
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Field, Formik } from "formik";
 import ProfileDetail from "../ProfileDetail/ProfileDetail";
+import { setLinkData } from "../../redux/linkSlice";
 const Customize = () => {
   const [linkNumber, setLinkNumber] = useState(1);
   const [allLinks, setAllLinks] = useState([]);
+  const [selectPlatform, setSelectPlatform] = useState();
+  const [platformLink, setPlatformLink] = useState();
+  const dispatch = useDispatch();
+  const linkData = useSelector((state) => state.link.linkData);
   const addLink = () => {
     setLinkNumber(linkNumber + 1);
     setAllLinks([...allLinks, { id: linkNumber, title: `Link ${linkNumber}` }]);
@@ -16,6 +21,15 @@ const Customize = () => {
     setAllLinks((prevLinks) => prevLinks.filter((link) => link.id !== id));
   };
   const value = useSelector((state) => state.link.step);
+  const handleSubmit = () => {
+    dispatch(
+      setLinkData([
+        ...linkData,
+        { platform: selectPlatform, platformLink: platformLink },
+      ])
+    );
+  };
+  console.log(linkData);
   return (
     <Formik
       initialValues={{
@@ -55,14 +69,27 @@ const Customize = () => {
                             </Disclosure.Button>
                             <Disclosure.Panel className="px-4 pt-4 pb-4 text-sm text-gray-500 bg-[#fafafa] rounded-none flex flex-col panel">
                               <span>Platform</span>
-                              <select name="" id="">
+                              <select
+                                name=""
+                                id=""
+                                onChange={(e) =>
+                                  setSelectPlatform(e.target.value)
+                                }
+                              >
                                 <option value="Github">Github</option>
                                 <option value="Linkedin">Linkedin</option>
                                 <option value="Youtube">Youtube</option>
                                 <option value="Instgram">Instgram</option>
                               </select>
                               <span>Link</span>
-                              <Field name="deneme" />
+                              <Field
+                                name="deneme"
+                                value={platformLink}
+                                onChange={(e) =>
+                                  setPlatformLink(e.target.value)
+                                }
+                              />
+                              <button onClick={handleSubmit}>Ekle</button>
                             </Disclosure.Panel>
                           </>
                         )}

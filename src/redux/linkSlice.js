@@ -9,6 +9,7 @@ const initialState = {
     lastName: null,
     email: null,
   },
+  linkData: [],
 };
 
 export const linkSlice = createSlice({
@@ -24,9 +25,12 @@ export const linkSlice = createSlice({
     setData: (state, action) => {
       state.data = action.payload;
     },
+    setLinkData: (state, action) => {
+      state.linkData = action.payload;
+    },
   },
 });
 
-export const { setStep, setImageUrl, setData } = linkSlice.actions;
+export const { setStep, setImageUrl, setData, setLinkData } = linkSlice.actions;
 
 export default linkSlice.reducer;
